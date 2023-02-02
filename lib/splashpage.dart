@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -10,12 +11,17 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  @override
-  void initState() {
-    super.initState();
+  CheckPrefs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacementNamed('/');
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    CheckPrefs();
   }
 
   @override

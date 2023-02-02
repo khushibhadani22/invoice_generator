@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:womenaasecari/deatil.dart';
 import 'package:womenaasecari/pdfPage.dart';
 import 'package:womenaasecari/splashpage.dart';
@@ -8,7 +9,10 @@ import 'edit page.dart';
 import 'first.dart';
 import 'home.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: 'splash',
